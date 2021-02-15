@@ -1,0 +1,50 @@
+<div class="container">
+    <div style="margin: 40px;">
+
+    </div>
+    <h3>Autó adatainak szerkesztése</h3>
+    <form (ngSubmit)="submit()" #form="ngForm">
+        <div class="form-group">
+          <label>Gyártó név</label>
+          <input [(ngModel)]="autoData.gyartoNev" name="gyartoNev" type="text" class="form-control" 
+                  required maxlength="30">
+        </div>
+        <div class="form-group">
+          <label>Modell név</label>
+          <input [(ngModel)]="autoData.modellNev" name="modellNev" type="text" class="form-control" 
+                  required maxlength="30">
+        </div>
+        <div class="form-group">
+          <label>Ajtók száma</label>
+          <input [(ngModel)]="autoData.ajtok" name="ajtok" type="number" class="form-control" 
+                  required>
+        </div>
+        <div class="form-group">
+          <label>Teljesítmény</label>
+          <input [(ngModel)]="autoData.teljesitmeny" name="teljesitmeny" type="number" class="form-control" 
+                  required>
+        </div>
+        <div class="form-group">
+          <label>Ülések száma</label>
+          <input [(ngModel)]="autoData.ulesek" name="ulesek" type="number" class="form-control" 
+                  required>
+        </div>
+        <div class="form-group">
+          <label>Évjárat</label>
+          <input [(ngModel)]="autoData.evjarat" name="evjarat" type="number" class="form-control" 
+                  required>
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+          <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Mentés</button>
+        </div>
+  </form>
+
+    <div style="margin-top: 20px;">
+        <button (click)="vissza()" class="btn btn-primary">Vissza</button>
+    </div>
+
+    <p *ngIf="errorMessage" style="color: red;">
+        {{errorMessage}}
+    </p>
+
+</div>

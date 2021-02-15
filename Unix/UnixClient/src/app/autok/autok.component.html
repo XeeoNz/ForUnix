@@ -1,0 +1,66 @@
+<div class="container">
+  <div style="margin: 40px;">
+
+  </div>
+
+
+
+  <button [routerLink]="['autok/create/new']" class="btn btn-primary" style="margin-bottom: 20px;">Új
+    hozzáadása</button>
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- gyartonev Column -->
+    <ng-container matColumnDef="gyartoNev">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gyártó </th>
+      <td mat-cell *matCellDef="let element"> {{element.gyartoNev}} </td>
+    </ng-container>
+
+    <!-- modellnev Column -->
+    <ng-container matColumnDef="modellNev">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modell név </th>
+      <td mat-cell *matCellDef="let element"> {{element.modellNev}} </td>
+    </ng-container>
+
+    <!-- ajtok Column -->
+    <ng-container matColumnDef="ajtok">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ajtók száma </th>
+      <td mat-cell *matCellDef="let element"> {{element.ajtok}} </td>
+    </ng-container>
+
+    <!-- teljesitmeny Column -->
+    <ng-container matColumnDef="teljesitmeny">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Teljesítmény </th>
+      <td mat-cell *matCellDef="let element"> {{element.teljesitmeny}} </td>
+    </ng-container>
+
+    <!-- evjarat Column -->
+    <ng-container matColumnDef="evjarat">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Évjárat </th>
+      <td mat-cell *matCellDef="let element"> {{element.evjarat}} </td>
+    </ng-container>
+
+    <!-- gombok Column -->
+    <ng-container matColumnDef="gombok">
+      <th mat-header-cell *matHeaderCellDef> Gombok </th>
+      <td mat-cell *matCellDef="let element">
+        <button [routerLink]="['autok', element.modellId]" class="btn btn-primary btn-sm">Részletek</button> |
+        <button [routerLink]="['autok/edit', element.modellId]" class="btn btn-primary btn-sm">Módosítás</button> |
+        <button (click)="deleteModellAndReszletek(element.modellId)" class="btn btn-danger btn-sm">Törlés</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <p *ngIf="errorMessage" style="color: red;">
+    {{errorMessage}}
+  </p>
+
+</div>

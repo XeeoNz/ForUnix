@@ -1,0 +1,22 @@
+<div class="container">
+    <div style="margin: 40px;">
+
+    </div>
+    <h3>Részletek</h3>
+    <p><strong>Gyártó: </strong>{{auto.gyartoNev}}</p>
+    <p><strong>Modell név: </strong>{{auto.modellNev}}</p>
+    <p><strong>Ajtók száma: </strong>{{auto.ajtok}}</p>
+    <p><strong>Teljesítmény: </strong>{{auto.teljesitmeny}}</p>
+    <p><strong>Ülések száma: </strong>{{auto.ulesek}}</p>
+    <p><strong>Évjárat: </strong>{{auto.evjarat}}</p>
+
+    <div style="margin-top: 20px;">
+        <button (click)="vissza()" class="btn btn-primary">Vissza</button>
+    </div>
+
+    <p *ngIf="errorMessage" style="color: red;">
+        {{errorMessage}}
+    </p>
+
+
+</div>
